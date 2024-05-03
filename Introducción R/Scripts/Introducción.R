@@ -99,12 +99,19 @@ typeof(x) #Retorna qué tipo son las variables dentro del vector
 #gracias a source podemos llamar a nuestra función NEWEDA
 NEWEDA(x)
 #como EDA, hist() nos retorna un histograma
-hist(res)
+hist(x)
+#-------------------------------------------------------
+#Kolmogorov y Smirnoff test
+ks.test(x)
+#prueba de lilliefors sólo sirve para una Distribución Normal
+nortest::lillie.test(x)
+#prueba de SW
+shapiro.test(x)
 #------------------------------------------------
 #tenemos una base de datos, lo primero que hacemos es representar el histograma:
 hist(x,freq = FALSE)# nos preguntamos, qué distribucion puede ser?
 #función de densidad:
-fx<-dnorm(x,mu,sigma)
+#fx<-dnorm(x,mu,sigma)
 #aqui me pone la media y sigma por defecto: 0 y 1
 curve(dnorm,from=-3,to=3)
 #Luego de preguntarmos qué distribucion puede ser.
