@@ -98,6 +98,20 @@ typeof(x) #Retorna qué tipo son las variables dentro del vector
 
 #gracias a source podemos llamar a nuestra función NEWEDA
 NEWEDA(x)
+#como EDA, hist() nos retorna un histograma
+hist(res)
+#------------------------------------------------
+#tenemos una base de datos, lo primero que hacemos es representar el histograma:
+hist(x,freq = FALSE)# nos preguntamos, qué distribucion puede ser?
+#función de densidad:
+fx<-dnorm(x,mu,sigma)
+#aqui me pone la media y sigma por defecto: 0 y 1
+curve(dnorm,from=-3,to=3)
+#Luego de preguntarmos qué distribucion puede ser.
+  #ajustamos a la distribución normal
+
+#para poner nuestra media y sigma:
+curve(dnorm(x,mean(x),sd(x)),add=TRUE)
 
 #Names me trae los nombres de los vectores
 res<-PASWR::EDA(x,trim=0.1)
@@ -109,9 +123,51 @@ names(res)
 #Si no quiero con espacio en blanco:
 names(res)<-paste("cod",1:17,sep="-")
 res
+#----------------------Vectores
+#c de concatenar, nos devuelve un vector
+#Por lo que un vector se crea con c(x1,...,xn)
+xx<-c(x,300)
+PASWR::EDA(xx)
 
-#como EDA, hist() nos retorna un histograma
-hist(res)
+#Puedo extraer un rango de índices con []
+y<-xx[1:4]
+#puedo consultar un vector de indices a y
+y[c(1,3,89)]
+#si quiero que se ejecute de una puedo ponerlo entre parentesis
+#así ya no tengo que poner en otra línea: y
+(y<-xx[1:4])
+#o también para varias instrucciones en la misma linea pongo el ";"
+y<-xx[1:4];y
+
+#podemos crear un vector vacío de algun tipo de alguna longitud 
+vector("numeric",10)
+#--------------------------CONSULTA
+res<-NEWEDA(rnorm(100))
+n<-length(res)
+#retorna el valor n
+res[n]
+#retorna todos los valores menos el último
+res[-n]
+#retorna todos los valores menos el 1 y el 3
+res[c(-1,-3)]
+#guardo en res2 los valores del 1 al 5
+res2<-res[1:5]
+res2
+#De res2 traigo sólo los valores True
+res2[c(T,T,F,F,F)]
+#--------------------------CONDICIONALES
+res2>0
+#puedo traer solo los verdaderos
+res2[res2>0]
+#Which me da la posicion donde cumple mi condicion
+which(res2>0)
+which(res2<0)
+which.max(res2)
+res2[which.max(res2)]
+max(res2)
+#de una lista sacar el 1 y 2 (en lógicos)
+c(1,4,1,32,6,2,5) %in% 1:2
+
 
 
 
