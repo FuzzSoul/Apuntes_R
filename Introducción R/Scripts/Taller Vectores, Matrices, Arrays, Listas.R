@@ -20,12 +20,13 @@ A1
 #lista que tenga m,n Lambda 
 mediav1<-mean(v1)
 mediaM1<-c(apply(M1,1,mean))
-medias<-c(apply(M2,1,mean),apply(M3,1,mean),apply(M4,1,mean))
+medias<-matrix(c(apply(M2,1,mean),apply(M3,1,mean),apply(M4,1,mean)), ncol=3)
 L1<-list(m,n,lambda,mediav1,mediaM1,medias)
 #lista de listas
 L2<-list(v1,M1,A1,L1)
-#medias s2 y s3 
-#como medias es vector 
-L2[[4]][[6]][c(150,250)]
-#es mucho mejor que medias sea matriz
+#medias s2 y s3 número 50
+#como medias es matriz:
+L2[[4]][[6]][[50,2]]
+L2[[4]][[6]][[50,3]]
+
 
